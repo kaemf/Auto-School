@@ -1,0 +1,824 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Russo+One&display=swap');
+body{
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    margin: 0;
+}
+
+.header{
+    display: flex;
+    justify-content: space-between;
+    position: relative;
+    margin-top: 52px;
+    width: 80%;
+}
+
+.first::before{content: '(0412) 46-84-62'}
+.second::before{content: '(066) 674-71-16'}
+
+.control-and-number{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 20px;
+    width: 30%;
+}
+
+.numbers{
+    display: flex;
+    font-family: Roboto;
+    font-size: 16px;
+    gap: 32px;
+}
+
+.face-about{
+    width: 100%;
+    margin-top: 65px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.about-face-content{
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+}
+
+.title{
+    color: #000;
+    font-family: Russo One;
+    font-size: 80px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 90.187%; /* 72.15px */
+    letter-spacing: 0.4px;
+    text-transform: uppercase;
+}
+
+.title::before{content: 'Автошкола будущего'}
+
+.car-face-content{
+    margin-top: -65px;
+}
+
+.left-section{
+    width: 100%;
+    justify-content: space-around;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.list-complet{
+    display: inline-flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 18px;
+}
+
+.text-content-item-complet{
+    margin-left: 12px;
+    width: 90%;
+}
+
+.shell{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    height: 100%;
+    width: 50%;
+}
+
+.list-item-complet{
+    display: flex;
+    align-items: center;
+    color: #8B8B8B;
+    font-family: Roboto;
+    font-size: 18px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 126.187%; /* 22.714px */
+    letter-spacing: 1.89px;
+    text-transform: uppercase;
+}
+
+.first-item::before{content: 'профессиональные преподователи'}
+.second-item::before{content: 'Низкие цены'}
+.third-item::before{content: 'Скидки студентам'}
+.fourth-item::before{content: 'Центр города'}
+
+.btn-order-main{
+    display: flex;
+    width: 251px;
+    height: 48px;
+    flex-shrink: 0;
+    border-radius: 5px;
+    background: #66D38E;
+    box-shadow: 5px 8px 30px -9px #2F9956;
+    color: #FFF;
+    justify-content: center;
+    align-items: center;
+    font-family: Roboto;
+    font-size: 18px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: 90.187%; /* 16.234px */
+    letter-spacing: 0.99px;
+    text-transform: uppercase;
+    cursor: pointer;
+}
+
+.btn-order-main::before{content: 'записаться';}
+
+.main-content{
+    position: relative;
+    display: flex;
+    margin-top: 170px;
+    width: 80%;
+    padding: 89px 124px;
+    border-radius: 50px;
+    /* background: gray; */
+    align-items: center;
+    flex-direction: column;
+    overflow: hidden;
+}
+
+.category{
+    display: flex;
+    justify-content: space-between;
+    /* width: 80%; */
+}
+
+.title-category{
+    color: #000;
+    font-family: Roboto;
+    font-size: 65px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: 90.187%; /* 58.622px */
+    letter-spacing: 3.575px;
+    text-transform: uppercase;
+}
+
+.title-category::before{content: 'Категория'}
+
+.first-category-title, .second-category-title, .third-category-title{
+    color: red;
+    font-family: Roboto;
+    font-size: 65px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: 90.187%; /* 58.622px */
+    letter-spacing: 3.575px;
+    text-transform: uppercase;
+}
+
+.category-name{
+    display: flex;
+    gap: 20px;
+}
+
+.second-category-title{
+    color: #66D38E;
+}
+
+.third-category-title{
+    color: #FFDD63;
+}
+
+.green{
+    background: #66D38E !important;
+    box-shadow: 5px 8px 30px -9px #2F9956 !important;
+}
+
+.yellow{
+    background: #FFDD63 !important;
+    box-shadow: 5px 8px 30px -9px #F69430 !important;
+}
+
+.first-category-title::after{content: 'A1/1';}
+.second-category-title::after{content: 'B';}
+.third-category-title::after{content: 'C/C1';}
+
+.image-container{
+    display: flex;
+    align-items: center;
+}
+
+.description{
+    margin-top: 43px;
+    color: var(--h2, #655D5D);
+    font-family: Roboto;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 127%; /* 20.32px */
+}
+
+.category-custom{
+    width: 83%;
+}
+
+.category-custom-one{
+    width: 83%;
+}
+
+.order-btn{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 234px;
+    height: 50px;
+    flex-shrink: 0;
+    border-radius: 5px;
+    background: #FF6262;
+    box-shadow: 5px 8px 30px -9px #FF6262;
+    color: #FFF;
+    font-family: Roboto;
+    font-size: 18px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: 90.187%; /* 16.234px */
+    letter-spacing: 0.99px;
+    text-transform: uppercase;
+    cursor: pointer;
+}
+
+.down-panel{
+    display: flex;
+    justify-content: space-between;
+    margin-top: 68px;
+}
+
+.open-doc-btn{
+    color: #424141;
+    font-family: Roboto;
+    font-size: 15px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 127.188%; /* 19.078px */
+}
+
+.open-doc-btn::before{content: 'список документов';}
+
+.document-list-btn{
+    display: flex;
+    align-items: flex-end;
+    justify-content: end;
+}
+
+.custom-shell{
+    display: flex;
+    justify-content: end;
+    align-items: start;
+}
+
+.drop-custom-shell{
+    display: flex;
+    align-items: center;
+    gap: 14px;
+}
+
+.line-between-main-content{
+    width: 60%;
+    height: 2px;
+    transform: rotate(0.211deg);
+    background: #000;
+    box-shadow: -166px 0px 8px 0px #FFF inset;
+    margin: 61px 0px 59px 0px;
+}
+
+.order-btn::before{content: 'подать заявку';}
+
+.first-description::before{content: 'Курс обучения на категории "А1" и "А" состоит из 96 академических часов лекционных занятий и 20 академических часов практического вождения.';}
+.second-description::before{content: 'Курс состоит из 20 академических часов практического вождения. Важно: Что такое открытие низшей категории? Например, если у Вас есть водительское удостоверение категории "С", то по этой программе Вы можете открыть категории "С1" "В", "А", "А1", если у Вас есть категория "В", то Вы можете открыть "А" и "А1".';}
+.third-description::before{content: 'Категория "С1" и "С" курс состоит из 60 академических часов теории и 30 академических часов практического вождения. Важно: Переподготовка на категорию "С1" и "С" возможна при наличии удостоверения водителя категории "В".';}
+
+.saturation0, .saturation1, .saturation2{
+    position: absolute;
+    display: none;
+    width: 223px;
+    height: 211px;
+    filter: blur(100px);
+    z-index: 0;
+}
+
+.saturation0{
+    transform: translate(50%, 20%);
+    background: #FF6262;
+}
+
+.saturation1{
+    height: 150px;
+    transform: translate(130%, 0%);
+    background: #66D38E;
+}
+
+.saturation2{
+    transform: translate(130%, 0%);
+    background: #FFDD63;
+}
+
+.category-photo{
+    z-index: 2;
+}
+
+.left-category-section{
+    width: 50%;
+}
+
+.shadow-image0, .shadow-image1, .shadow-image2{
+    position: absolute;
+    background: #3A3939;
+    filter: blur(13.5px);
+    z-index: 1;
+}
+
+.shadow-image0{
+    width: 295.782px;
+    height: 43.69px;
+    border-radius: 295.782px;
+    transform: translate(10%, 220%) rotate(-20deg);
+}
+
+.shadow-image1{
+    width: 429.421px;
+    height: 80.644px;
+    border-radius: 429.421px;
+    transform: translate(20%, 150%) rotate(-5deg);
+}
+
+.shadow-image2{
+    width: 401.406px;
+    height: 55.483px;
+    transform: translate(20%, 350%) rotate(0deg);
+}
+
+.detail{
+    margin-top: 197px;
+    padding: 147px 150px 52px 151px;
+    /* background: url(../source/detail-rem.png); */
+    background: url('../source/detail-rem.png'), lightgray 50% / cover no-repeat;
+    /* background-repeat: no-repeat; */
+    /* width: 74%; */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.information-block{
+    display: flex;
+    justify-content: space-between;
+    /* width: 76%; */
+}
+
+.block{
+    width: 40%;
+    display: flex;
+    flex-direction: column;
+    gap: 43px;
+}
+
+.width{
+    width: 50%;
+}
+
+.title-block{
+    color: white;
+    font-family: Roboto;
+    font-size: 40px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: 90.187%; /* 58.622px */
+    letter-spacing: 3.575px;
+    text-transform: uppercase;
+}
+
+.description-block{
+    color: var(--h2, white);
+    font-family: Roboto;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 127.188%; /* 20.35px */
+}
+
+.podhod-t::before{content: 'Подход';}
+.podhod-d::before{content: 'Если Вы серъезно решили овладеть навыками, которые необходимы для вождения автомобиля, знайте - наша школа подходящий выбор для Вас. К процессу обучения привлечены преподаватели и инструктора с солидным опытом преподавания, качество работы которых подтверждается отзывами учеников.';}
+
+.politica-t::before{content: 'политика';}
+.politica-d::before{content: 'Мы стараемся установить максимально выгодные цены и оплату по факту на практические занятия по вождению, чтобы у учеников была возможность отъездить как можно больше часов с инструктором, приобрести, таким образом, твердые навыки управления, а значит облегчить себе сдачу экзаменов и оказаться на дороге уже достаточно подготовленным водителем.';}
+
+.fast-record{
+    position: relative;
+    margin-top: 205px;
+    /* background: rgba(1, 1, 1, .1); */
+    width: 95%;
+    display: flex;
+    justify-content: center;
+    color: red;
+    border-radius: 50px;
+    font-size: 100px;
+    overflow: hidden;
+}
+
+.title-fast-record{
+    color: #000;
+    font-family: Roboto;
+    font-size: 40px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: 90.187%; /* 58.622px */
+    letter-spacing: 3.575px;
+    text-transform: uppercase;
+}
+
+.title-fast-record::before{content: 'быстрая запись';}
+
+.shell-fast-record-limit{
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    padding: 86px 96px 26px 94px;
+}
+
+.right-section-record{
+    display: flex;
+    flex-direction: column;
+    justify-content: end;
+    gap: 29px;
+    margin-bottom: 54px;
+}
+
+.graphic-block, .social-block{
+    display: flex;
+    flex-direction: column;
+    align-items: end;
+    gap: 8px;
+}
+
+.graphic-title, .social-title{
+    color: #000;
+    font-family: Roboto;
+    font-size: 25px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 127.188%; /* 31.797px */
+}
+
+.graphic-content{
+    color: #000;
+    text-align: right;
+    font-family: Roboto;
+    font-size: 18px;
+    font-style: normal;
+    font-weight: 400;
+    width: 60%;
+    line-height: 127.188%; /* 22.894px */
+}
+
+.social-content{
+    display: flex;
+    align-items: center;
+    gap: 11px;
+}
+
+.graphic-content::before{content: 'Пн-Пт: 08:00-19:00 Сб-Вс: выходной';}
+
+.graphic-title::before{content: 'График работы:';}
+
+.social-title::before{content: 'Мы в социальных сетях:';}
+
+.line-record{
+    width: 523.024px;
+    /* margin-top: -5px; */
+    height: 1px;
+    background: #000;
+}
+
+.classic-record{
+    padding: 0;
+    background: transparent;
+    border: none;
+    color: #989595;
+    font-family: Roboto;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 90.187%; /* 14.43px */
+    letter-spacing: 0.88px;
+    width: 523.024px;
+}
+
+.input-block-record{
+    display: flex;
+    flex-direction: column;
+    gap: 15.5px;
+}
+
+.input-array-block-record{
+    margin-top: 60px;
+    display: flex;
+    flex-direction: column;
+    gap: 45.5px;
+    margin-bottom: 18.5px;
+}
+
+input:focus{
+    outline: none !important;
+}
+
+/* input::placeholder{
+    color: #989595;
+    font-family: Roboto;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 90.187%;
+    letter-spacing: 0.88px;
+} */
+
+.outro{
+    width: 95%;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    gap: 29px;
+    padding: 76px 36px 28px 36px;
+}
+
+.address, .card{
+    color: #1F1E1E;
+    text-align: center;
+    font-family: Roboto;
+    font-size: 15px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: 148.687%; /* 22.303px */
+    letter-spacing: 1.125px;
+    text-transform: uppercase;
+}
+
+.address::before{content: 'Наш адрес: Украина, г. Житомир, пл. Победы 10, каб. 303'}
+.card::before{content: 'карта web-сайта'}
+
+.copyright{
+    margin-top: 29px;
+    width: 100%;
+    color: #1F1E1E;
+    text-align: end;
+    font-family: Roboto;
+    font-size: 15px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: 148.687%; /* 22.303px */
+    letter-spacing: 1.125px;
+    text-transform: lowercase;
+}
+
+.text-copyright::before{content: 'Copyright 2012-2022 "Автошкола Драйв"';}
+
+.green-ambient, .red-ambient, .yellow-ambient{
+    position: absolute;
+    width: 545px;
+    height: 515px;
+    border-radius: 545px;
+    z-index: 0;
+    filter: blur(200px);
+}
+
+.green-ambient{
+    bottom: 0;
+    left: 50%;
+    transform: translate(-50%, 88%);
+    background: #66D38E;
+    filter: blur(300px) !important;
+}
+
+.red-ambient{
+    top: 0;
+    left: 0;
+    transform: translate(-80%, -40%);
+    opacity: 0.5;
+    background: #FF6262;
+}
+
+.yellow-ambient{
+    top: 0;
+    right: 0;
+    transform: translate(40%, -80%);
+    background: #FFDD63;
+}
+
+.shell-information-drop{
+    transition: all .3s ease;
+}
+
+.information-drop{
+    display: flex;
+    justify-content: end;
+    margin-top: 14px;
+    overflow: hidden;
+    transition: all .3s ease;
+    max-height: 0;
+}
+
+.text-information-link{
+    color: #424141;
+    font-family: Roboto;
+    font-size: 15px;
+    margin-left: 5px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 127.188%; /* 19.078px */
+}
+
+.link-container-line-between{
+    width: 143.5px;
+    height: 1px;
+    margin-top: 4px;
+    background: #000;
+}
+
+.passport::before{content: 'паспорт';}
+.id-code::before{content:  'инд. код';}
+.med-report::before{content: 'мед. справка';}
+.photo::before{content: 'фото';}
+
+.open-doc-svg{
+    transition: all .3s ease;
+}
+
+.document-list-btn:hover .open-doc-svg{
+    transform: rotate(15deg);
+}
+
+.record-btn-send{
+    cursor: pointer;
+}
+
+.content-ambient{
+    position: absolute;
+    z-index: -1;
+    opacity: 0.5;
+    filter: blur(200px);
+}
+
+.red-ma{
+    width: 503.108px;
+    height: 1521.502px;
+    top: 0;
+    left: 0;;
+    flex-shrink: 0;
+    border-radius: 1521.502px;
+    opacity: 0.5;
+    background: #FF6262;
+    transform: translate(-85%, -45%);
+}
+
+.yellow-ma{
+    top: 0;
+    right: 0;
+    width: 503.108px;
+    height: 1521.502px;
+    border-radius: 1521.502px;
+    background: #FFDD63;
+    transform: translate(32%, -85%);
+}
+
+.green-ma{
+    width: 503.108px;
+    height: 1521.502px;
+    flex-shrink: 0;
+    border-radius: 1521.502px;
+    background: #66D38E;
+    filter: blur(300px) !important;
+    opacity: 1;
+    bottom: 0;
+    transform: translate(0%, 90%);
+}
+
+.main-order-button-v2{
+    display: flex;
+    width: 380px;
+    height: 54px;
+    margin-top: 89px;
+    padding: 0px 104px;
+    justify-content: center;
+    align-items: center;
+    flex-shrink: 0;
+    border-radius: 5px;
+    background: #66D38E;
+    color: #FFF;
+    text-align: center;
+    font-family: Roboto;
+    font-size: 18px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: 90.187%; /* 16.234px */
+    letter-spacing: 0.99px;
+    text-transform: uppercase;
+    cursor: pointer;
+}
+
+.main-order-button-v2::before{content: 'подать заявку';}
+
+.menu-header{
+    transition: all 0.3s ease-in-out;
+    position: absolute;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    right: 0;
+    /* max-height: 0; */
+    opacity: 0;
+    margin-top: 80px;
+    width: 200px;
+    overflow: hidden;
+    border-radius: 10px;
+    transform: scaleY(0) translate(0%, -50%);
+    background: rgba(255, 255, 255, 0.5);
+    z-index: 2;
+    -webkit-box-shadow: -2px 1px 12px 1px rgba(0,0,0,0.49); 
+    -webkit-backdrop-filter: blur(4px);
+    box-shadow: -2px 1px 12px 1px rgba(0,0,0,0.49);
+    backdrop-filter: blur(4px);
+}
+
+.menu{
+    cursor: pointer;
+    transition: all .3s ease;
+}
+
+.menu:hover{
+    -webkit-box-shadow: -2px 1px 12px 1px rgba(0,0,0,0.49); 
+    box-shadow: -2px 1px 12px 1px rgba(0,0,0,0.49);
+}
+
+.version-choose-title, .language-choose-title{
+    background: rgba(0,0,0, .49);
+    width: 100%;
+    text-align: center;
+    padding: 10px 0px;
+    text-transform: uppercase;
+}
+
+.version-choose-title{
+    border-radius: 10px 10px 0px 0px;
+}
+
+.point{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    color: white;
+    font-family: Roboto;
+    text-shadow: 0px 0px 5px black;
+}
+
+.version-choose-title::before{content: 'Выберите версию';}
+
+.version-choose-button{
+    display: flex;
+    justify-content: space-evenly;
+    width: 100%;
+    padding: 20px 0px;
+}
+
+.version1, .version2{
+    display: inline-block;
+    position: relative;
+    cursor: pointer;
+    z-index: 1;
+}
+
+.version1::after{content: 'V1';}
+.version2::before{content: 'V2';}
+
+.version1::before {
+    content: '';
+    background: #000;
+    color: #fff; /* Цвет текста */
+    border-radius: 100px;
+    padding: 20px; /* Добавляем отступы для текста */
+    /* top: 0; */
+    position: absolute;
+    border: 2px solid rgb(236, 104, 21);
+    transform: translate(-30%, -30%);
+    /* left: 0;
+    right: 0;
+    bottom: 0; */
+    /* filter: blur(5px); Установите радиус размытия, который вам нравится */
+    z-index: -1; /* Помещаем фон сзади текста */
+}
+
+.language-choose-title::before{content: 'Выберите язык';}
+
+.ukrainian::before{content: 'UA';}
+.russian::before{content: 'RU';}
+.english::before{content: 'EN';}
