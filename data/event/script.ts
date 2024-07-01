@@ -4,7 +4,7 @@ const dropList: NodeListOf<HTMLDivElement> = document.querySelectorAll('.drop-cu
     downPanel : NodeListOf<HTMLDivElement> = document.querySelectorAll('.down-panel'),
     lineBetween: NodeListOf<HTMLDivElement> = document.querySelectorAll('.line-between-main-content'),
     categoryContainer: NodeListOf<HTMLDivElement> = document.querySelectorAll('.category'),
-    mainMenuButton: HTMLImageElement = document.querySelector('.menu') as HTMLImageElement,
+    // mainMenuButton: HTMLImageElement = document.querySelector('.menu') as HTMLImageElement,
     cpuCores : number = navigator.hardwareConcurrency,
     ambientsRecord : NodeListOf<HTMLDivElement> = document.querySelectorAll('.image-ambient'),
     greenAmbientRecord : HTMLDivElement = document.querySelector('.green-ambient') as HTMLDivElement,
@@ -17,11 +17,8 @@ const dropList: NodeListOf<HTMLDivElement> = document.querySelectorAll('.drop-cu
     mainContent : HTMLDivElement = document.querySelector('.main-content') as HTMLDivElement,
     menuHeader : HTMLDivElement = document.querySelector('.menu-header') as HTMLDivElement,
     recordPlace : HTMLDivElement = document.querySelector('.fast-record') as HTMLDivElement,
-    v1Switch : HTMLDivElement = document.querySelector('.version1') as HTMLDivElement,
-    v2Switch : HTMLDivElement = document.querySelector('.version2') as HTMLDivElement,
-    uaLanguageSwitch : HTMLDivElement = document.querySelector('.ukrainian') as HTMLDivElement,
-    ruLanguageSwitch : HTMLDivElement = document.querySelector('.russian') as HTMLDivElement,
-    enLanguageSwitch : HTMLDivElement = document.querySelector('.english') as HTMLDivElement;
+    versionSwitcher : HTMLDivElement = document.querySelector('.version-switcher') as HTMLDivElement,
+    languageSwitcher : HTMLDivElement = document.querySelector('.language-switcher') as HTMLDivElement;
 let activeV2 : boolean = true;
 
 interface User{
@@ -30,32 +27,42 @@ interface User{
     phoneNumber: string;
 }
 
-function addUserToLocalStorage(user: User) {
-    let users: User[] = [];
+class UserRecord{
+    public addUserToLocalStorage(user: User) {
+        let users: User[] = [];
+    
+        const existingData = localStorage.getItem('../data/storage/users');
+        if (existingData) {
+            users = JSON.parse(existingData);
+        }
+    
+        users.push(user);
+    
+        localStorage.setItem('../data/storage/users', JSON.stringify(users));
 
-    const existingData = localStorage.getItem('../data/storage/users');
-    if (existingData) {
-        users = JSON.parse(existingData);
+        fetch('./storage/users.json')
+        .then(response => response.json())
+        .then(data => {
+            console.log(data); // New York
+        })
+        .catch(error => console.error('Error fetching JSON:', error));
+
     }
-
-    users.push(user);
-
-    localStorage.setItem('../data/storage/users', JSON.stringify(users));
+    
+    public sortUsersByName(): User[] {
+        const existingData = localStorage.getItem('../data/storage/users');
+        if (existingData) {
+            const users: User[] = JSON.parse(existingData);
+    
+            users.sort((a, b) => a.name.localeCompare(b.name));
+    
+            return users;
+        } 
+        else return [];
+    }
 }
 
-function sortUsersByName(): User[] {
-    const existingData = localStorage.getItem('../data/storage/users');
-    if (existingData) {
-        const users: User[] = JSON.parse(existingData);
-
-        users.sort((a, b) => a.name.localeCompare(b.name));
-
-        return users;
-    } 
-    else {
-        return [];
-    }
-}
+const record: UserRecord = new UserRecord();
 
 dropList.forEach(Object => {
     Object.addEventListener('click', () => {
@@ -108,8 +115,8 @@ sendLocal.addEventListener('click', () => {
             phoneNumber: number.value
         };
 
-        addUserToLocalStorage(dataToSend);
-        const sortedUsers = sortUsersByName();
+        record.addUserToLocalStorage(dataToSend);
+        const sortedUsers = record.sortUsersByName();
         console.log(sortedUsers);
     }
 });
@@ -139,76 +146,93 @@ lineBetween.forEach(lineBetweenObject => {
 //     categoryContainerObject.style.marginTop = '122px';
 // })
 
-mainMenuButton.addEventListener('click', (e : Event) => {
-    if (activeV2){
-        menuHeader.style.opacity = '1';
-        // menuHeader.style.maxHeight = '999px';
-        menuHeader.style.transform = 'scaleY(1) translate(0%, 0%)';
-        activeV2 = false;
+// mainMenuButton.addEventListener('click', (e : Event) => {
+//     if (activeV2){
+//         menuHeader.style.opacity = '1';
+//         // menuHeader.style.maxHeight = '999px';
+//         menuHeader.style.transform = 'scaleY(1) translate(0%, 0%)';
+//         activeV2 = false;
+//     }
+//     else{
+//         menuHeader.style.opacity = '0';
+//         // menuHeader.style.maxHeight = '0px';
+//         menuHeader.style.transform = 'scaleY(0) translate(0%, -150%)';
+//         activeV2 = true;
+//     }
+// })
+
+versionSwitcher.addEventListener('click', (e : Event) => {
+    const activeVersion = versionSwitcher.getAttribute('active');
+
+    if (activeVersion === 'V2'){
+        ambientsMain.forEach(ambientsMainObject => {
+            ambientsMainObject.style.display = 'none';
+        });
+        ambientsRecord.forEach(ambientsRecordObject => {
+            mainContent.style.background = 'transparent'
+            ambientsRecordObject.style.display = 'block';
+        })
+    
+        mainContent.style.overflow = 'visible';
+    
+        downPanel.forEach(downPanelObject => {
+            downPanelObject.style.display = 'block';
+        });
+        
+        lineBetween.forEach(lineBetweenObject => {
+            lineBetweenObject.style.opacity = '1';
+        })
+    
+        mainOrderButton.style.display = 'none';
+    
+        fastRecordShell.style.width = '76%';
+        fastRecordOutside.style.width = '100%';
+        fastRecordOutside.style.borderRadius = '0px';
+
+        setTimeout(() => {
+            versionSwitcher.style.setProperty('--position', 'translate(-50%, 0%)');
+            versionSwitcher.setAttribute('active', 'V1');
+        }, 300);
+
+        versionSwitcher.style.setProperty('--position', 'translate(-50%, 150%)');
     }
     else{
-        menuHeader.style.opacity = '0';
-        // menuHeader.style.maxHeight = '0px';
-        menuHeader.style.transform = 'scaleY(0) translate(0%, -150%)';
-        activeV2 = true;
+        ambientsMain.forEach(ambientsMainObject => {
+            if (cpuCores <= 4){
+                mainContent.style.background = 'rgba(1,1,1, .1)';
+                ambientsMainObject.style.display = 'none';
+            }
+            else{
+                ambientsMainObject.style.display = 'block';
+            }
+        });
+        ambientsRecord.forEach(ambientsRecordObject => {
+            ambientsRecordObject.style.display = 'none';
+        })
+    
+        mainContent.style.overflow = 'hidden';
+    
+        downPanel.forEach(downPanelObject => {
+            downPanelObject.style.display = 'none';
+        });
+        
+        lineBetween.forEach(lineBetweenObject => {
+            lineBetweenObject.style.opacity = '0';
+        })
+    
+        mainOrderButton.style.display = 'flex';
+    
+        fastRecordShell.style.width = '100%';
+        fastRecordOutside.style.width = '';
+        fastRecordOutside.style.borderRadius = '50px';
+
+        setTimeout(() => {
+            versionSwitcher.style.setProperty('--position', 'translate(-50%, 0%)');
+            versionSwitcher.setAttribute('active', 'V2');
+        }, 300);
+
+        versionSwitcher.style.setProperty('--position', 'translate(-50%, 150%)');
     }
-})
-
-v1Switch.addEventListener('click', (e : Event) => {
-    ambientsMain.forEach(ambientsMainObject => {
-        ambientsMainObject.style.display = 'none';
-    });
-    ambientsRecord.forEach(ambientsRecordObject => {
-        mainContent.style.background = 'transparent'
-        ambientsRecordObject.style.display = 'block';
-    })
-
-    mainContent.style.overflow = 'visible';
-
-    downPanel.forEach(downPanelObject => {
-        downPanelObject.style.display = 'block';
-    });
-    
-    lineBetween.forEach(lineBetweenObject => {
-        lineBetweenObject.style.opacity = '1';
-    })
-
-    mainOrderButton.style.display = 'none';
-
-    fastRecordShell.style.width = '76%';
-    fastRecordOutside.style.width = '100%';
-    fastRecordOutside.style.borderRadius = '0px';
-})
-
-v2Switch.addEventListener('click', (e : Event) => {
-    ambientsMain.forEach(ambientsMainObject => {
-        if (cpuCores <= 4){
-            mainContent.style.background = 'rgba(1,1,1, .1)';
-            ambientsMainObject.style.display = 'none';
-        }
-        else{
-            ambientsMainObject.style.display = 'block';
-        }
-    });
-    ambientsRecord.forEach(ambientsRecordObject => {
-        ambientsRecordObject.style.display = 'none';
-    })
-
-    mainContent.style.overflow = 'hidden';
-
-    downPanel.forEach(downPanelObject => {
-        downPanelObject.style.display = 'none';
-    });
-    
-    lineBetween.forEach(lineBetweenObject => {
-        lineBetweenObject.style.opacity = '0';
-    })
-
-    mainOrderButton.style.display = 'flex';
-
-    fastRecordShell.style.width = '100%';
-    fastRecordOutside.style.width = '';
-    fastRecordOutside.style.borderRadius = '50px';
 })
 
 mainOrderButton.addEventListener('click', () => {

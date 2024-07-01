@@ -1,5 +1,6 @@
 @import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Russo+One&display=swap');
+
 body{
     display: flex;
     align-items: center;
@@ -42,18 +43,24 @@ body{
 
 .version-switcher{
     color: white;
-    padding: 10px 20px;
+    padding: 8px 30px;
     background: #66D38E;
+    position: relative;
+    overflow: hidden;
     cursor: pointer;
+    --position: translate(-50%, 0%);
 }
 
 .version-switcher::before{
-    content: "V2";
+    content: attr(active);
+    position: absolute;
+    transition: all .3s ease-in-out;
+    transform: var(--position);
 }
 
 .language-switcher{
     color: black;
-    padding: 10px 20px;
+    padding: 8px 20px;
     /* background: black; */
     border: 1px black solid;
     cursor: pointer;
